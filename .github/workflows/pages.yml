@@ -26,6 +26,7 @@ jobs:
           printf 'crawler.leolune.fun\n' > dist/CNAME
           touch dist/.nojekyll
           test -f dist/index.html
+          python3 -c 'from pathlib import Path; p=Path("dist/index.html"); p.write_text(p.read_text().replace("Voxel — The Underblock", "Voxel: The Underblock"))'
       - name: Test game rules
         working-directory: dist
         run: node --test tests/*.test.js
